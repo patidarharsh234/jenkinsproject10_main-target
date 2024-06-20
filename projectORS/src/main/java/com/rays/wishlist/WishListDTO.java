@@ -25,7 +25,7 @@ public class WishListDTO extends BaseDTO {
 	private Long amount;
 
 	
-	@Column(name = "CLIENT_DATE") // 1
+	@Column(name = "DATE_OF_PURCHES") // 1
 	private Date dateOfPurches;
 	
 	
@@ -38,10 +38,10 @@ public class WishListDTO extends BaseDTO {
 	
 	//role
 	
-	@Column(name = "items", length = 500) // 1
+	@Column(name = "ITEMS", length = 500) // 1
 	private String items;
 	
-	@Column(name = "items_Id") // 1
+	@Column(name = "ITEMS_ID") // 1
 	private Long itemsId;
 
 
