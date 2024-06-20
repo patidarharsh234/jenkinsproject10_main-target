@@ -44,8 +44,8 @@ public class UserForm extends BaseForm {
 	@Min(1)
 	private Long roleId;
 
-	@Pattern(regexp = "(^$|[0-9]{10})")
 	@NotEmpty(message = "please enter phone")
+	@Pattern(regexp = "(^$|[0-9]{9})",message = "phone no  contanain only number")
 	private String phone;
 
 	@NotEmpty(message = "please enter alternate phone")

@@ -152,15 +152,18 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 	}
 
 	@RequestMapping(value = "/search/{pageNo}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ORSResponse search(@RequestBody F form, @PathVariable int pageNo) {
+	public ORSResponse search(@RequestBody  F form, @PathVariable int pageNo) {
 //mean method use in our project.
+		
+		
+		
 
 		// 0 is first page index
 		pageNo = (pageNo < 0) ? 0 : pageNo;
 
 		T dto = (T) form.getDto();
 
-		ORSResponse res = new ORSResponse(true);
+		ORSResponse res =new ORSResponse(true);
 		List list = baseService.search(dto, pageNo, pageSize, userContext);
 
 		if (list.size() > 0 && list != null) {
@@ -186,7 +189,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 		T dto = (T) form.getDto();
 		try {
 
-			//T loginIdCheck = baseService.findByUniqueKey(dto.getUniqueKey(), dto.getUniqueValue(), userContext);
+	//		T loginIdCheck = baseService.findByUniqueKey(dto.getUniqueKey(), dto.getUniqueValue(), userContext);
 
 			// Update Filed
 			if (dto.getId() != null && dto.getId() > 0) {
@@ -204,7 +207,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 				// Add Filed
 //				if (dto.getUniqueKey() != null && !dto.getUniqueKey().equals("")) {
 //					T existDto = (T) baseService.findByUniqueKey(dto.getUniqueKey(), dto.getUniqueValue(), userContext);
-
+//
 //					if (existDto != null) {
 //						res.addMessage(dto.getLabel() + " already exist");
 //						res.setSuccess(false);
@@ -212,22 +215,12 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 						baseService.add(dto, userContext);
 						res.addMessage("Data is saved....");
 //					}
+						
+						
 //				}
 
 			}
 
-			// or
-			/*
-			 * if (dto.getId() != null && dto.getId() > 0) {
-			 * 
-			 * if (loginIdCheck != null && loginIdCheck.getId() != dto.getId()) {
-			 * res.addMessage(dto.getLabel() + " already Exist"); res.setSuccess(false);
-			 * return res; } else { res.addMessage("Data is Updated.."); } } else {
-			 * 
-			 * // Add Filed if (loginIdCheck != null) { res.addMessage(dto.getLabel() +
-			 * " already exist"); res.setSuccess(false); return res; } else {
-			 * res.addMessage("Data is saved...."); } } baseService.save(dto, userContext);
-			 */
 
 			res.addData(dto.getId());
 		} catch (Exception e) {

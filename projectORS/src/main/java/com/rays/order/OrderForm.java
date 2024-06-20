@@ -42,7 +42,7 @@ public class OrderForm extends BaseForm {
 
 
 	@NotBlank(message = "please enter mobileNo")
-	@Pattern(regexp = "^[1-9][0-9]{9}$", message = "The mobile number should contain only 10 digits.")
+	@Pattern(regexp = "^[1-9][0-9]{9}$", message = "The mobile number should contain only 10 digits number.")
 	private String mobileNo; 
 	
 
