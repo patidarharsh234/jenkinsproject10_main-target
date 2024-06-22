@@ -276,6 +276,19 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 		return val != null;
 	}
 
+	
+	
+    public static boolean isNotBlankDecimal(double value) {
+        return  value != 0.0;
+    }
+    
+    
+    public static boolean isBlankDecimal(double value) {
+    	   return Double.isNaN(value) || value == 0.0;
+    }
+
+    
+    
 	/**
 	 * Get order by clause
 	 * 

@@ -36,13 +36,16 @@ public class ClientDAOImp extends BaseDAOImpl<ClientDTO> implements ClientDAOInt
 		if (isNotNull(dto.getPriorityId())) {
 			condition.add(builder.equal(qRoot.get("priorityId"), dto.getPriorityId()));
 		}
-
-		if (isNotNull(dto.getdateOfPurches())) {
-			condition.add(builder.equal(qRoot.get("dateOfPurches"), dto.getdateOfPurches()));
+		if (isNotBlankDecimal(dto.getDoubleValue())) {
+			condition.add(builder.equal(qRoot.get("doubleValue"), dto.getDoubleValue()));
 		}
 
-		if (!isEmptyString(dto.getName())) {
-			condition.add(builder.like(qRoot.get("name"), dto.getName() + "%"));
+		if (isNotNull(dto.getclientDate())) {
+			condition.add(builder.equal(qRoot.get("clientDate"), dto.getclientDate()));
+		}
+
+		if (!isEmptyString(dto.getNames())) {
+			condition.add(builder.like(qRoot.get("names"), dto.getNames() + "%"));
 		}
 
 		if (isNotNull(dto.getSalary())) {

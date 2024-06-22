@@ -15,7 +15,7 @@ public class ClientForm extends BaseForm {
 
 	@NotBlank(message = "please enter name")
 	@Pattern(regexp = "^[a-zA-Z ]+$", message = "The name must contain only alphabetic characters.")
-	private String name;
+	private String names;
 
 	@NotBlank(message = "please enter address ")
 	private String address;
@@ -24,9 +24,14 @@ public class ClientForm extends BaseForm {
 	@Pattern(regexp = "^\\d*$", message = "salary must be a number")
 	private String salary;
 
-	@NotBlank(message = "please enter dateOfPurches")
-	@ValidDate(message = "select valid dateOfPurches ")
-	private String dateOfPurches;
+	@NotBlank(message = "please enter doubleValue")
+	@Pattern(regexp = "^[+-]?(\\d+(\\.\\d*)?|\\.\\d+)([eE][+-]?\\d+)?$", message = "doubleValue must be a number")
+	private String doubleValue;
+	
+	
+	@NotBlank(message = "please enter clientDate")
+	@ValidDate(message = "select valid clientDate ")
+	private String clientDate;
 
 	@NotBlank(message = "please enter phoneNo")
 	@Pattern(regexp = "^[1-9][0-9]{9}$", message = "The mobile number should contain only 10 digits.")
@@ -48,6 +53,14 @@ public class ClientForm extends BaseForm {
 	
 	
 	
+	public String getDoubleValue() {
+		return doubleValue;
+	}
+
+	public void setDoubleValue(String doubleValue) {
+		this.doubleValue = doubleValue;
+	}
+
 	public String getphoneNo() {
 		return phoneNo;
 	}
@@ -65,12 +78,13 @@ public class ClientForm extends BaseForm {
 		this.emailId = emailId;
 	}
 
-	public String getName() {
-		return name;
+
+	public String getNames() {
+		return names;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNames(String names) {
+		this.names = names;
 	}
 
 	public String getaddress() {
@@ -81,12 +95,12 @@ public class ClientForm extends BaseForm {
 		this.address = address;
 	}
 
-	public String getdateOfPurches() {
-		return dateOfPurches;
+	public String getclientDate() {
+		return clientDate;
 	}
 
-	public void setdateOfPurches(String dateOfPurches) {
-		this.dateOfPurches = dateOfPurches;
+	public void setclientDate(String clientDate) {
+		this.clientDate = clientDate;
 	}
 
 	public String getsalary() {
@@ -119,13 +133,13 @@ public class ClientForm extends BaseForm {
 	public BaseDTO getDto() {
 
 		ClientDTO dto = initDTO(new ClientDTO());
-		dto.setName(name);
+		dto.setNames(names);
 		dto.setAddress(address);
 		;
 
 		try {
-			if (dateOfPurches != null && !dateOfPurches.isEmpty()) {
-				dto.setdateOfPurches(new SimpleDateFormat("yyyy-MM-dd").parse(dateOfPurches));
+			if (clientDate != null && !clientDate.isEmpty()) {
+				dto.setclientDate(new SimpleDateFormat("yyyy-MM-dd").parse(clientDate));
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -135,6 +149,10 @@ public class ClientForm extends BaseForm {
 			dto.setSalary(Long.parseLong(salary));
 		}
 
+		if (doubleValue != null && !doubleValue.isEmpty()) {
+			dto.setDoubleValue(Double.parseDouble(doubleValue));
+		}
+		
 			if(phoneNo !=null && !phoneNo.isEmpty()) {
 				dto.setPhoneNo(Long.parseLong(phoneNo));
 			}

@@ -14,7 +14,7 @@ import com.rays.common.BaseDTO;
 public class ClientDTO extends BaseDTO {
 
 	@Column(name = "NAME", length = 500) // 1
-	private String name;
+	private String names;
 	
 	
 	@Column(name = "ADDRESS", length = 500) // 1
@@ -26,7 +26,7 @@ public class ClientDTO extends BaseDTO {
 
 	
 	@Column(name = "CLIENT_DATE") // 1
-	private Date dateOfPurches;
+	private Date clientDate;
 	
 	
 	@Column(name = "PHONE_NO") // 1
@@ -34,6 +34,10 @@ public class ClientDTO extends BaseDTO {
 	
 	@Column(name = "EMAIL_ID" ,length = 500) // 1
 	private String emailId;
+	
+	@Column(name = "doubleValue" ) // 1
+	private double doubleValue;
+	
 
 	
 	//role
@@ -47,18 +51,26 @@ public class ClientDTO extends BaseDTO {
 
 
 
-	public String getName() {
-		return name;
+	
+
+	
+	
+	public double getDoubleValue() {
+		return doubleValue;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDoubleValue(double doubleValue) {
+		this.doubleValue = doubleValue;
 	}
 
-	
+	public String getNames() {
+		return names;
+	}
 
-	
-	
+	public void setNames(String names) {
+		this.names = names;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -75,12 +87,12 @@ public class ClientDTO extends BaseDTO {
 		this.salary = salary;
 	}
 
-	public Date getdateOfPurches() {
-		return dateOfPurches;
+	public Date getclientDate() {
+		return clientDate;
 	}
 
-	public void setdateOfPurches(Date dateOfPurches) {
-		this.dateOfPurches = dateOfPurches;
+	public void setclientDate(Date clientDate) {
+		this.clientDate = clientDate;
 	}
 
 
@@ -122,7 +134,7 @@ public class ClientDTO extends BaseDTO {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return name;
+		return names;
 	}
 	
 	
@@ -147,7 +159,7 @@ public class ClientDTO extends BaseDTO {
 	@Override
 	public LinkedHashMap<String, String> orderBY() {
 		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-		map.put("name", "asc");
+		map.put("names", "asc");
 		return map;
 
 	}
