@@ -1,4 +1,4 @@
-package com.rays.Product;
+package com.rays.createpreload_1;
 
 
 import java.util.LinkedHashMap;
@@ -12,56 +12,54 @@ import com.rays.common.BaseDTO;
 
 
 @Entity
-@Table(name = "ST_productDTO")
-public class ProductDTO extends BaseDTO {
+@Table(name = "ST_CREATEPRELOAD_1")
+public class createpreload_1DTO extends BaseDTO {
 	
 	  
-	@Column(name = "product", length = 500) // 1
-	private String product;
+	@Column(name="PRIORITY")                   //2
+	private String priority;
 
 
 
 
-
-
-
-	public String getproduct() {
-		return product;
-	}
-
-	public void setproduct(String product) {
-		this.product = product;
-	}
 
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return product;
+		return priority;
 	}
 
 	@Override
 	public String getUniqueKey() {
 		// TODO Auto-generated method stub
-		return "product";
+		return null;
 	}
 
 	@Override
 	public String getUniqueValue() {
 		// TODO Auto-generated method stub
-		return product;
+		return null;
 	}
 
 	@Override
 	public String getLabel() {
 		// TODO Auto-generated method stub
-		return "product";
+		return null;
 	}
 
 	@Override
 	public LinkedHashMap<String, String> orderBY() {
 		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-		map.put("product", "asc");
+		map.put("priority", "asc");
 		return map;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
 	}
 
 	@Override

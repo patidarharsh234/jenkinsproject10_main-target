@@ -44,15 +44,14 @@ public class UserForm extends BaseForm {
 	@Min(1)
 	private Long roleId;
 
-	@NotEmpty(message = "please enter phone")
-	@Pattern(regexp = "(^$|[0-9]{9})",message = "phone no  contanain only number")
+	@NotBlank(message = "please enter phone")
+	@Pattern(regexp = "^(\\+91[\\-\\s]?)?[0]?(91)?[6789]\\d{9}$", message = "The mobile number should contain only 10 digits number.")
 	private String phone;
 
 	@NotEmpty(message = "please enter alternate phone")
 	private String alternateMobile;
 
 	@NotNull(message = "please enter dob")
-
 	private Date dob;
 
 	@NotNull(message = "please enter gender")

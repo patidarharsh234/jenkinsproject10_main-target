@@ -189,38 +189,38 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 		T dto = (T) form.getDto();
 		try {
 
-		T loginIdCheck = baseService.findByUniqueKey(dto.getUniqueKey(), dto.getUniqueValue(), userContext);
+			//		T loginIdCheck = baseService.findByUniqueKey(dto.getUniqueKey(), dto.getUniqueValue(), userContext);
 
 			// Update Filed
 			if (dto.getId() != null && dto.getId() > 0) {
 
-				
-				  if (loginIdCheck != null && loginIdCheck.getId() != dto.getId()) {
-				  res.addMessage(dto.getLabel() + " already Exist"); res.setSuccess(false);
-				  
-				  } else {
-				 
+				/*
+				 * if (loginIdCheck != null && loginIdCheck.getId() != dto.getId()) {
+				 * res.addMessage(dto.getLabel() + " already Exist"); res.setSuccess(false);
+				 * 
+				 * } else {
+				 */
 					baseService.update(dto, userContext);
 					res.addMessage("Data is Updated..");
-				}
+//				}
 					
 			} else {
 
 				 // Add Filed
-				
-				   if (dto.getUniqueKey() != null && !dto.getUniqueKey().equals("")) { T
-				  existDto = (T) baseService.findByUniqueKey(dto.getUniqueKey(),
-				  dto.getUniqueValue(), userContext);
-				  
-				  if (existDto != null) { res.addMessage(dto.getLabel() + " already exist");
-				  res.setSuccess(false); } else {
-				 
+				/*
+				 *  if (dto.getUniqueKey() != null && !dto.getUniqueKey().equals("")) { T
+				 * existDto = (T) baseService.findByUniqueKey(dto.getUniqueKey(),
+				 * dto.getUniqueValue(), userContext);
+				 * 
+				 * if (existDto != null) { res.addMessage(dto.getLabel() + " already exist");
+				 * res.setSuccess(false); } else {
+				 */
 						baseService.add(dto, userContext);
 						res.addMessage("Data is saved....");
-					}
+//					}
 						
 						
-				}
+//				}
 
 			}
 

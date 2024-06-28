@@ -1,6 +1,5 @@
-package com.rays.product;
+package com.rays.Product;
 
-import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -8,7 +7,6 @@ import com.rays.common.BaseServiceImpl;
 
 
 @Service
-@Transactional
-public class ProductServiceImp extends BaseServiceImpl<ProductDTO, ProductDAOInt> implements ProductServiceInt {
+public class ProductServiceImp extends BaseServiceImpl<ProductDTO, ProductDAOInt> implements ProductServiceInt{
 
 }

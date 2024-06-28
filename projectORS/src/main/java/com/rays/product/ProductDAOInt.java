@@ -1,7 +1,7 @@
-package com.rays.product;
+package com.rays.Product;
 
 import com.rays.common.BaseDAOInt;
 
-public interface ProductDAOInt  extends BaseDAOInt<ProductDTO>{
+public interface ProductDAOInt extends BaseDAOInt<ProductDTO>{
 
 }
